@@ -11,8 +11,9 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   console.log(data)
   console.log('Signed In')
+  document.getElementById('sign-in').reset()
   api.signIn(data)
-    .then(ui.signUpSuccess)
+    .then(ui.signInSuccess)
 }
 
 module.exports = {
