@@ -6,6 +6,15 @@ body {
   margin: 0 auto;
 }
 
+.credentials{
+}
+
+.navbar-brand{
+  font-size: 35px;
+  margin: 0 auto;
+
+}
+
 #game-board {
   margin-left: 0 auto;
   padding-bottom: 50px;
@@ -13,11 +22,13 @@ body {
 }
 
 .box {
-  border: 1px solid green;
+  border: 2px dashed blue;
   width: 240px;
   height: 240px;
   text-align: center;
 }
+
+// Removed Border from respective sides to create Tic-Tac-Toe Board
 
 #box-1 {
   border-top: none;
@@ -54,6 +65,8 @@ body {
   border-right: none;
   border-bottom: none;
 }
+
+//  Finished with Border Adjustments
 
 .footer {
   height: 60px;
