@@ -1,6 +1,83 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.credentials{
+}
+
+.navbar-brand{
+  font-size: 35px;
+  margin: 0 auto;
+
+}
+
+.modal-footer{
+  text-align: center;
+}
+
+#game-board {
+  margin-left: 0 auto;
+  padding-bottom: 50px;
+}
+
 .box {
-  border: 1px solid green;
+  border: 2px dashed blue;
+  width: 240px;
+  height: 240px;
+  text-align: center;
+}
+
+// Removed Border from respective sides to create Tic-Tac-Toe Board
+
+#box-1 {
+  border-top: none;
+  border-left: none;
+}
+
+#box-2 {
+  border-top: none;
+}
+
+#box-3 {
+  border-top: none;
+  border-right: none;
+}
+
+#box-4 {
+  border-left: none;
+}
+
+#box-6 {
+  border-right: none;
+}
+
+#box-7 {
+  border-left: none;
+  border-bottom: none;
+}
+
+#box-8 {
+  border-bottom: none;
+}
+
+#box-9 {
+  border-right: none;
+  border-bottom: none;
+}
+
+//  Finished with Border Adjustments
+
+.footer {
+  height: 60px;
+  width: 100%;
+  background-color: #272727;
+}
+
+#copyright {
+  color: white;
+  padding: 15px;
 }
