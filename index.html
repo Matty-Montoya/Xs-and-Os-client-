@@ -45,65 +45,65 @@
         </div>
       </div>
 
-<!-- Sign Up Modal Begin -->
-        <div class="nav navbar-nav nabvar-center">
-          <!-- Button trigger modal -->
-          <input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" value="Sign Up!">
+      <!-- Sign Up Modal Begin -->
+      <div class="nav navbar-nav nabvar-center">
+        <!-- Button trigger modal -->
+        <input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" value="Sign Up!">
 
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Sign Up!</h4>
-                </div>
-                <div class="modal-body">
-                  <form id="sign-up">
-                      <input type="text" name="credentials[email]" placeholder="Email">
-                      <input type="password" name="credentials[password]" placeholder="Password">
-                      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                      <input type="submit" class="btn btn-default" value="Sign Up!">
-                  </form>
-                </div>
-                <div class="modal-footer">
-                </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Sign Up!</h4>
+              </div>
+              <div class="modal-body">
+                <form id="sign-up">
+                  <input type="text" name="credentials[email]" placeholder="Email">
+                  <input type="password" name="credentials[password]" placeholder="Password">
+                  <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                  <input type="submit" class="btn btn-default" value="Sign Up!">
+                </form>
+              </div>
+              <div class="modal-footer">
               </div>
             </div>
           </div>
         </div>
-  <!--Sign Up Modal End  -->
+      </div>
+      <!--Sign Up Modal End  -->
 
-  <!-- Change Password Modal Begin -->
-          <div class="nav navbar-nav nabvar-center">
-            <!-- Button trigger modal -->
-            <input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal1" value="Change Password">
+      <!-- Change Password Modal Begin -->
+      <div class="nav navbar-nav nabvar-center">
+        <!-- Button trigger modal -->
+        <input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal1" value="Change Password">
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Change Password</h4>
-                  </div>
-                  <div class="modal-body">
-                    <form id="change-password">
-                      <input type="password" name="passwords[old]" placeholder="Old Password">
-                      <input type="password" name="passwords[new]" placeholder="New Password">
-                      <input type="submit" value="Change Password ">
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                  </div>
-                </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+              </div>
+              <div class="modal-body">
+                <form id="change-password">
+                  <input type="password" name="passwords[old]" placeholder="Old Password">
+                  <input type="password" name="passwords[new]" placeholder="New Password">
+                  <input type="submit" value="Change Password ">
+                </form>
+              </div>
+              <div class="modal-footer">
               </div>
             </div>
           </div>
-    <!--Change Password Modal End  -->
-
-
+        </div>
       </div>
+      <!--Change Password Modal End  -->
+
+
+    </div>
   </nav>
   <!-- Navigation End  -->
 
@@ -112,12 +112,14 @@
   <section>
 
     <div id="main-content" class="container-fluid">
+      <div class="turn-counter">
+      <h1 id="counter">  Turn:</h1>
+      </div>
       <div id="game-board">
-        <h1 id="turn-counter">  Turn:</h1>
         <table>
-            <td class="box" id="box-0"></td>
-            <td class="box" id="box-1"></td>
-            <td class="box" id="box-2"></td>
+          <td class="box" id="box-0"></td>
+          <td class="box" id="box-1"></td>
+          <td class="box" id="box-2"></td>
           </tr>
           <tr>
             <td class="box" id="box-3"></td>
@@ -130,8 +132,11 @@
             <td class="box" id="box-8"></td>
           </tr>
         </table>
-        <button type="button" name="button" id="replay">Play Again!</button>
       </div>
+    </div>
+
+    <div class="replay">
+      <button type="button" name="button" id="replay">Play Again!</button>
     </div>
 
   </section>

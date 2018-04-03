@@ -1,6 +1,8 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+$background-color: #272727;
+
 body {
   text-align: center;
   margin: 0 auto;
@@ -22,10 +24,13 @@ body {
 #game-board {
   margin-left: 0 auto;
   padding-bottom: 50px;
+  padding-top: 20px;
+  padding-left: 27%;
+  padding-right: 27%;
 }
 
 .box {
-  border: 2px dashed blue;
+  border: 2px dashed $background-color;
   width: 240px;
   height: 240px;
   text-align: center;
@@ -74,10 +79,30 @@ body {
 
 //  Finished with Border Adjustments
 
+.replay{
+  padding-bottom: 50px;
+}
+
+#replay {
+  width:300px;
+  height: 40px;
+  height: 55px;
+  font-size: 25px;
+  background-color:$background-color;
+  color: white;
+  font-weight: bold;
+}
+
+#replay:hover{
+  background-color: blue;
+  // box-shadow:
+}
+
+
 .footer {
   height: 60px;
   width: 100%;
-  background-color: #272727;
+  background-color: $background-color;
 }
 
 #copyright {
