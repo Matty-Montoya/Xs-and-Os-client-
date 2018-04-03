@@ -31,40 +31,43 @@ body {
   text-align: center;
 }
 
+#turn-counter {
+  border: 1px solid black;
+}
 // Removed Border from respective sides to create Tic-Tac-Toe Board
+
+#box-0 {
+  border-top: none;
+  border-left: none;
+}
 
 #box-1 {
   border-top: none;
-  border-left: none;
 }
 
 #box-2 {
   border-top: none;
+  border-right: none;
 }
 
 #box-3 {
-  border-top: none;
-  border-right: none;
+  border-left: none;
 }
 
-#box-4 {
-  border-left: none;
+#box-5 {
+  border-right: none;
 }
 
 #box-6 {
-  border-right: none;
+  border-left: none;
+  border-bottom: none;
 }
 
 #box-7 {
-  border-left: none;
   border-bottom: none;
 }
 
 #box-8 {
-  border-bottom: none;
-}
-
-#box-9 {
   border-right: none;
   border-bottom: none;
 }
