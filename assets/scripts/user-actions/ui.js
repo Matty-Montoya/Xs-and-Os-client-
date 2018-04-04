@@ -3,7 +3,7 @@
 const store = require('../store.js')
 
 const signUpSuccess = function () {
-  $('#status').text('You have successfully signed up! Please sign in!')
+  $('#status').html('You have successfully signed up! Please sign in!')
   setTimeout(() => { $('#status').fadeOut() }, 3000)
   $('#myModal1').modal('toggle')
 }
@@ -15,7 +15,7 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   console.log(data)
-  $('#status').text('You have successfully signed in!')
+  $('#status').html('You have successfully signed in!')
   setTimeout(() => { $('#status').fadeOut() }, 3000)
   $('#myModal').modal('toggle')
   $('.sign-in').addClass('hidden')
@@ -31,7 +31,7 @@ const signInFailure = function () {
 }
 
 const changePasswordSuccess = function () {
-  $('#status').html('You have successfully changed password!')
+  $('#status').text('You have successfully changed password!')
   setTimeout(() => { $('#status').fadeOut() }, 3000)
   $('#myModal2').modal('toggle')
 }
