@@ -1,39 +1,32 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-
 $background-color: #272727;
 
 body {
   text-align: center;
-  margin: 0 auto
-
+  margin: 0 auto;
 }
 
-
-td{
+td {
   font-size: 50px;
   color: red;
 }
-.credentials{
-}
 
-.navbar-brand{
+.credentials {}
+
+.navbar-brand {
   font-size: 35px;
   margin: 0 auto;
   font-family: 'Press Start 2P', cursive;
-
 }
 
-.modal-footer{
+.modal-footer {
   text-align: center;
 }
 
 #game-board {
   margin-left: 0 auto;
-  padding-bottom: 50px;
-  padding-top: 20px;
-  padding-left: 32%;
-  padding-right: 32%;
+  padding: 20px 32% 50px;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -41,8 +34,15 @@ td{
   border: 2px solid $background-color;
   width: 162px;
   height: 162px;
-  text-align: center
+  text-align: center;
+}
 
+.box:hover {
+  background-color: rgba(39, 39, 39, .2);
+}
+
+.turn-counter {
+  width: 100%;
 }
 
 #counter {
@@ -85,30 +85,39 @@ td{
   border-right: none;
   border-bottom: none;
 }
-
 //  Finished with Border Adjustments
-
-.replay{
-  padding-bottom: 50px;
+.replay {
   font-family: 'Press Start 2P', cursive;
+  padding-bottom: 10px;
 }
 
 #replay {
-  width:300px;
-  height: 40px;
-  height: 55px;
-  font-size: 25px;
+  width: 300px;
+  height: 30px;
+  height: 45px;
+  font-size: 15px;
   font-family: 'Press Start 2P', cursive;
   color: white;
   font-weight: bold;
   background-color: $background-color;
 }
 
-#replay:hover{
-  background-color: blue;
-  // box-shadow:
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
 }
 
+.hvr-grow:active,
+.hvr-grow:focus,
+.hvr-grow:hover {
+  transform: scale(1.3);
+}
 
 footer {
   height: 60px;

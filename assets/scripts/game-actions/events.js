@@ -12,7 +12,9 @@ const player1 = 'X'
 const player2 = 'O'
 
 // Creating the board as an array of 9 empty strings
-const board = ['', '', '', '', '', '', '', '', '']
+let board
+
+board = ['', '', '', '', '', '', '', '', '']
 
 // Total Win Combinations
 const winCombos = [
@@ -39,9 +41,8 @@ const changeTurn = function () {
       turn = player1
     }
     this.innerHTML = turn
-    console.log(turn)
   } else {
-    console.log('This is an invalid space')
+    $('#counter').html('This is an invalid space! Choose again!')
   }
   return turn
 }
@@ -49,9 +50,19 @@ const changeTurn = function () {
 // Play again functon
 const playAgain = function (event) {
   event.preventDefault()
-  if (winCondition === true) {
-    $('#replay').show()
-  }
+
+  // Show game board
+  $('#game-board').show()
+
+  // Empties Gameboard Cells
+  $('.box').html('')
+
+  // Empties Board Array
+  board = ['', '', '', '', '', '', '', '', '']
+  turn = player2
+
+  // Reset Counter
+  $('#counter').html('Begin Player X!')
 }
 
 const pushToArray = function () {
@@ -97,7 +108,6 @@ const winCondition = () => {
     console.log('X wins')
     $('#counter').text('Congratulations ' + 'Player X has won!')
     $('#game-board').hide()
-    $('#replay').show()
     return true
     // if O wins top row
   } else if ((board[0] === 'O' && board[1] === 'O' && board[2] === 'O') ||
@@ -119,24 +129,25 @@ const winCondition = () => {
     console.log('O wins')
     $('#counter').text('Congratulations ' + 'Player O has won!')
     $('#game-board').hide()
+
     return true
   } else if ((board[0].innerHTML !== '' && board[1].innerHTML !== '' && board[2].innerHTML !== '' &&
       board[3].innerHTML !== '' && board[4].innerHTML !== '' && board[5].innerHTML !== '' && board[6].innerHTML !== '' &&
       board[7].innerHTML !== '' && board[8].innerHTML !== '')) {
     // return draw
     console.log('Its a draw')
-    $('#counter').text('Its a draw')
+    $('#counter').text('Its a draw!')
+    $('#game-board').hide()
   }
 }
 
 module.exports = {
+  board,
   addHandlers,
   player1,
   player2,
-  board,
   winCombos,
   changeTurn,
   playAgain,
-  pushToArray,
-  winCondition
+  pushToArray
 }
