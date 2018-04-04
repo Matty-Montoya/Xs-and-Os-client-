@@ -10,7 +10,7 @@ const signUpSuccess = function () {
 
 const signUpFailure = function () {
   $('.authmessage').html('Please try again!')
-  setTimeout(() => { $('.authmessage').fadeOut() }, 3000)
+  setTimeout(() => $('.authmessage').fadeOut(), 3000)
 }
 
 const signInSuccess = function (data) {
@@ -26,8 +26,8 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function () {
-  $('.authmessage').html('Please try again!')
-  setTimeout(() => { $('.authmessage').fadeOut() }, 3000)
+  $('.authmessage').text('Please try again!')
+  setTimeout(() => $('.authmessage').fadeOut(), 3000)
 }
 
 const changePasswordSuccess = function () {
