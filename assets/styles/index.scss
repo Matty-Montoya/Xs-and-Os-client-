@@ -34,7 +34,7 @@ td {
 
 #game-board {
   margin-left: 0 auto;
-  padding: 20px 32% 50px;
+  padding: 20px 34% 50px;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -126,7 +126,22 @@ td {
 .hvr-grow:hover {
   transform: scale(1.3);
 }
+.hvr-grow1 {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
 
+.hvr-grow1:active,
+.hvr-grow1:focus,
+.hvr-grow1:hover {
+  transform: scale(1.08);
+}
 footer {
   height: 60px;
   width: 100%;
