@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>X's and O's</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
@@ -36,7 +36,7 @@
         </ul>
         <div class="nav navbar-nav navbar-right" id="navbar-padding">
           <!--Sign In Button Trigger Modal  -->
-          <input type="button" class="btn btn-default hvr-grow1" data-toggle="modal" data-target="#myModal" value="Sign In!">
+          <input type="button" class="btn btn-default hvr-grow1 sign-in" data-toggle="modal" data-target="#myModal" value="Sign In!">
           <!-- Sign-In Modal -->
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -53,7 +53,7 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <p id="message"></p>
+                  <h2 class="authmessage"></h2>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
           <!--Sign-In Modal End  -->
 
           <!-- Sign Up Button Trigger Modal -->
-          <input type="button" class="btn btn-default hvr-grow1" data-toggle="modal" data-target="#myModal1" value="Sign Up!">
+          <input type="button" class="btn btn-default hvr-grow1 sign-up" data-toggle="modal" data-target="#myModal1" value="Sign Up!">
           <!-- Sign- Up Modal -->
           <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -79,7 +79,7 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <p id="message"></p>
+                  <h2 class="authmessage"></h2>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@
           <!--Sign Up Modal End  -->
 
           <!-- Change Password Button Trigger Modal -->
-          <input type="button" class="btn btn-default hidden hvr-grow1" data-toggle="modal" data-target="#myModal2" value="Change Password">
+          <input type="button" class="btn btn-default hidden hvr-grow1 change-password" data-toggle="modal" data-target="#myModal2" value="Change Password">
 
           <!-- Change Password Modal Begin -->
           <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -105,11 +105,20 @@
                   </form>
                 </div>
                 <div class="modal-footer">
+                  <h2 class="authmessage"></h2>
                 </div>
               </div>
             </div>
           </div>
         <!--Change Password Modal End  -->
+
+        <!--Sign Out Button Start -->
+        <form id="sign-out" class="border">
+          <fieldset>
+            <input type="submit" class="btn btn-default hidden hvr-grow1 sign-out" value="Sign Out">
+          </fieldset>
+        </form>
+        <!--Sign Out Button End  -->
 
         </div>
       </div>
@@ -123,6 +132,7 @@
 
     <div id="main-content game" class="container-fluid">
       <div class="turn-counter">
+        <h2 class="status"></h2>
         <h2 id="counter">Begin Player X!</h2>
       </div>
       <div id="game-board">

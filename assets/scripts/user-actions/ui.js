@@ -3,41 +3,60 @@
 const store = require('../store.js')
 
 const signUpSuccess = function () {
-  $('#message').text('You have successfully signed up!')
-  $('.sign-up').addClass('.hidden')
-  $('.sign-in').addClass('.hidden')
+  $('#status').text('You have successfully signed up! Please sign in!')
+  setTimeout(() => { $('#status').fadeOut() }, 3000)
+  $('#myModal1').modal('toggle')
+}
+
+const signUpFailure = function () {
+  $('.authmessage').html('Please try again!')
+  setTimeout(() => { $('.authmessage').fadeOut() }, 3000)
 }
 
 const signInSuccess = function (data) {
   console.log(data)
-  $('#message').text('Successfully Signing In!')
-  $('#message').css('background-color', 'green')
-  $('#message').css('color', 'white')
-  $('#myModal').modal('hide')
-  $('.sign-in').addClass('.hidden')
-  $('.sign-up').addClass('.hidden')
+  $('#status').text('You have successfully signed in!')
+  setTimeout(() => { $('#status').fadeOut() }, 3000)
+  $('#myModal').modal('toggle')
+  $('.sign-in').addClass('hidden')
+  $('.sign-up').addClass('hidden')
+  $('.change-password').removeClass('hidden')
+  $('.sign-out').removeClass('hidden')
   store.user = data.user
 }
 
 const signInFailure = function () {
-  $('#message').text('Failure Signing In!')
-  $('#message').css('background-color', 'red')
-  $('#message').css('color', 'white')
-  $('#message').css('text-align', 'center')
-  setTimeout(() => $('#message').text(''), 2000)
+  $('.authmessage').html('Please try again!')
+  setTimeout(() => { $('.authmessage').fadeOut() }, 3000)
 }
 
 const changePasswordSuccess = function () {
+  $('#status').html('You have successfully changed password!')
+  setTimeout(() => { $('#status').fadeOut() }, 3000)
+  $('#myModal2').modal('toggle')
+}
+
+const changePasswordFailure = function () {
+  $('.authmessage').html('Please try again!')
+  setTimeout(() => { $('.authmessage').fadeOut() }, 3000)
 }
 
 const signOutSuccess = function () {
+  $('#status').text('You have signed out!')
+  setTimeout(() => { $('#status').fadeOut() }, 3000)
+  $('.sign-in').removeClass('hidden')
+  $('.sign-up').removeClass('hidden')
+  $('.change-password').addClass('hidden')
+  $('.sign-out').addClass('hidden')
   store.user = null
 }
 
-module.export = {
+module.exports = {
   signUpSuccess,
+  signUpFailure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
+  changePasswordFailure,
   signOutSuccess
 }
