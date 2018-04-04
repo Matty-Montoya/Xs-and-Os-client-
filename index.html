@@ -5,6 +5,8 @@
   <title>Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -111,9 +113,9 @@
   <!-- Game Board  -->
   <section>
 
-    <div id="main-content" class="container-fluid">
+    <div id="main-content game" class="container-fluid">
       <div class="turn-counter">
-      <h1 id="counter">  Turn:</h1>
+      <h1 id="counter">Begin Player X!</h1>
       </div>
       <div id="game-board">
         <table>
@@ -136,7 +138,7 @@
     </div>
 
     <div class="replay">
-      <button type="button" name="button" id="replay">Play Again!</button>
+      <button type="button" name="button" id="replay" hidden="hidden">Play Again!</button>
     </div>
 
   </section>
@@ -145,9 +147,7 @@
 
   <!-- Footer Start  -->
   <footer>
-    <div class="footer">
       <p id="copyright">&copy; X's &amp; O's</p>
-    </div>
   </footer>
   <!-- Footer End -->
 

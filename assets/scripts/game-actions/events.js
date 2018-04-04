@@ -32,10 +32,10 @@ const changeTurn = function () {
   // if (element.innerHTML !== '') return
   if (this.innerHTML !== 'X' && this.innerHTML !== 'O') {
     if (turn === player1) {
-      document.getElementById('counter').innerHTML = 'Turn: ' + turn
+      document.getElementById('counter').innerHTML = 'Player X Next!'
       turn = player2
     } else {
-      document.getElementById('counter').innerHTML = 'Turn: ' + turn
+      document.getElementById('counter').innerHTML = 'Player O Next!'
       turn = player1
     }
     this.innerHTML = turn
@@ -43,15 +43,14 @@ const changeTurn = function () {
   } else {
     console.log('This is an invalid space')
   }
-
   return turn
 }
 
 // Play again functon
 const playAgain = function (event) {
   event.preventDefault()
-  for (let i = 0; i < board.length; i++) {
-    location.reload()
+  if (winCondition === true) {
+    $('#replay').show()
   }
 }
 
@@ -79,22 +78,54 @@ const winCondition = () => {
   board[7] = document.getElementById('box-7')
   board[8] = document.getElementById('box-8')
 
-  if (board[0].innerHTML !== '' && board[0].innerHTML === board[1].innerHTML && board[1].innerHTML === board[2].innerHTML) {
-    console.log('Has Won!')
-  } else if (board[3].innerHTML !== '' && board[3].innerHTML === board[4].innerHTML && board[3].innerHTML === board[5].innerHTML) {
-    console.log('You Have Won!')
-  } else if (board[6].innerHTML !== '' && board[6].innerHTML === board[7].innerHTML && board[6].innerHTML === board[8].innerHTML) {
-    console.log('You Have Won!')
-  } else if (board[0].innerHTML !== '' && board[0].innerHTML === board[3].innerHTML && board[0].innerHTML === board[6].innerHTML) {
-    console.log('You Have Won!')
-  } else if (board[1].innerHTML !== '' && board[1].innerHTML === board[4].innerHTML && board[1].innerHTML === board[7].innerHTML) {
-    console.log('You Have Won!')
-  } else if (board[2].innerHTML !== '' && board[2].innerHTML === board[5].innerHTML && board[2].innerHTML === board[8].innerHTML) {
-    console.log('You Have Won!')
-  } else if (board[0].innerHTML !== '' && board[0].innerHTML === board[4].innerHTML && board[0].innerHTML === board[8].innerHTML) {
-    console.log('You Have Won!')
-  } else if (board[2].innerHTML !== '' && board[2].innerHTML === board[4].innerHTML && board[2].innerHTML === board[6].innerHTML) {
-    console.log('You Have Won!')
+  if ((board[0].innerHTML === 'X' && board[1].innerHTML === 'X' && board[2].innerHTML === 'X') ||
+    // or x wins middle row
+    (board[3].innerHTML === 'X' && board[4].innerHTML === 'X' && board[5].innerHTML === 'X') ||
+    // or x wins bottom row
+    (board[6].innerHTML === 'X' && board[7].innerHTML === 'X' && board[8].innerHTML === 'X') ||
+    // or x wins left to right diagnol
+    (board[0].innerHTML === 'X' && board[4].innerHTML === 'X' && board[8].innerHTML === 'X') ||
+    // or X wins right column
+    (board[2].innerHTML === 'X' && board[5].innerHTML === 'X' && board[8].innerHTML === 'X') ||
+    // or X wins left column
+    (board[0].innerHTML === 'X' && board[3].innerHTML === 'X' && board[6].innerHTML === 'X') ||
+    // or X wins middle column
+    (board[1].innerHTML === 'X' && board[4].innerHTML === 'X' && board[7].innerHTML === 'X') ||
+    // or X wins right to left diagonal
+    (board[2].innerHTML === 'X' && board[4].innerHTML === 'X' && board[6].innerHTML === 'X')) {
+    // print player one wins
+    console.log('X wins')
+    $('#counter').text('Congratulations ' + 'Player X has won!')
+    $('#game-board').hide()
+    $('#replay').show()
+    return true
+    // if O wins top row
+  } else if ((board[0] === 'O' && board[1] === 'O' && board[2] === 'O') ||
+    // or O wins middle row
+    (board[3].innerHTML === 'O' && board[4].innerHTML === 'O' && board[5].innerHTML === 'O') ||
+    // or O wins bottom row
+    (board[6].innerHTML === 'O' && board[7].innerHTML === 'O' && board[8].innerHTML === 'O') ||
+    // or O wins left to right diagonal
+    (board[0].innerHTML === 'O' && board[4].innerHTML === 'O' && board[8].innerHTML === 'O') ||
+    // or O wins right column
+    (board[2].innerHTML === 'O' && board[5].innerHTML === 'O' && board[8].innerHTML === 'O') ||
+    // or O wins left column
+    (board[0].innerHTML === 'O' && board[3].innerHTML === 'O' && board[6].innerHTML === 'O') ||
+    // or O wins middle column
+    (board[1].innerHTML === 'O' && board[4].innerHTML === 'O' && board[7].innerHTML === 'O') ||
+    // or O wins right to left diagonal
+    (board[2].innerHTML === 'O' && board[4].innerHTML === 'O' && board[6].innerHTML === 'O')) {
+    // print player two wins
+    console.log('O wins')
+    $('#counter').text('Congratulations ' + 'Player O has won!')
+    $('#game-board').hide()
+    return true
+  } else if ((board[0].innerHTML !== '' && board[1].innerHTML !== '' && board[2].innerHTML !== '' &&
+      board[3].innerHTML !== '' && board[4].innerHTML !== '' && board[5].innerHTML !== '' && board[6].innerHTML !== '' &&
+      board[7].innerHTML !== '' && board[8].innerHTML !== '')) {
+    // return draw
+    console.log('Its a draw')
+    $('#counter').text('Its a draw')
   }
 }
 

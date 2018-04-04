@@ -5,15 +5,22 @@ $background-color: #272727;
 
 body {
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto
+
 }
 
+
+td{
+  font-size: 50px;
+  color: red;
+}
 .credentials{
 }
 
 .navbar-brand{
   font-size: 35px;
   margin: 0 auto;
+  font-family: 'Press Start 2P', cursive;
 
 }
 
@@ -25,19 +32,21 @@ body {
   margin-left: 0 auto;
   padding-bottom: 50px;
   padding-top: 20px;
-  padding-left: 27%;
-  padding-right: 27%;
+  padding-left: 32%;
+  padding-right: 32%;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .box {
-  border: 2px dashed $background-color;
-  width: 240px;
-  height: 240px;
-  text-align: center;
+  border: 2px solid $background-color;
+  width: 162px;
+  height: 162px;
+  text-align: center
+
 }
 
-#turn-counter {
-  border: 1px solid black;
+#counter {
+  font-family: 'Press Start 2P', cursive;
 }
 // Removed Border from respective sides to create Tic-Tac-Toe Board
 
@@ -81,6 +90,7 @@ body {
 
 .replay{
   padding-bottom: 50px;
+  font-family: 'Press Start 2P', cursive;
 }
 
 #replay {
@@ -88,9 +98,10 @@ body {
   height: 40px;
   height: 55px;
   font-size: 25px;
-  background-color:$background-color;
+  font-family: 'Press Start 2P', cursive;
   color: white;
   font-weight: bold;
+  background-color: $background-color;
 }
 
 #replay:hover{
@@ -99,10 +110,15 @@ body {
 }
 
 
-.footer {
+footer {
   height: 60px;
   width: 100%;
   background-color: $background-color;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: 'Press Start 2P', cursive;
 }
 
 #copyright {
