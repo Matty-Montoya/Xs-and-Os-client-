@@ -1,10 +1,14 @@
 'use strict'
+const api = require('./api')
+const ui = require('./ui')
+const store = require('../store.js')
 
 const addHandlers = () => {
   $('.box').on('click', changeTurn)
   $('.box').on('click', winCondition)
   $('.box').on('click', pushToArray)
   $('#replay').on('click', playAgain)
+  $('#get-games').on('click', onGetGameIndex)
 }
 
 // Assigning X and O to players
@@ -50,7 +54,6 @@ const changeTurn = function () {
 // Play again functon
 const playAgain = function (event) {
   event.preventDefault()
-
   // Show game board
   $('#game-board').show()
 
@@ -63,6 +66,14 @@ const playAgain = function (event) {
 
   // Reset Counter
   $('#counter').html('Begin Player X!')
+  // Create Post Request
+  api.gameStart()
+    .then(ui.gameStartSuccess)
+}
+
+const onGetGameIndex = function () {
+  api.gameIndex()
+    .then(ui.gameIndexSuccess)
 }
 
 const pushToArray = function () {
@@ -110,7 +121,7 @@ const winCondition = () => {
     $('#game-board').hide()
     return true
     // if O wins top row
-  } else if ((board[0] === 'O' && board[1] === 'O' && board[2] === 'O') ||
+  } else if ((board[0].innerHTML === 'O' && board[1].innerHTML === 'O' && board[2].innerHTML === 'O') ||
     // or O wins middle row
     (board[3].innerHTML === 'O' && board[4].innerHTML === 'O' && board[5].innerHTML === 'O') ||
     // or O wins bottom row
@@ -149,5 +160,6 @@ module.exports = {
   winCombos,
   changeTurn,
   playAgain,
-  pushToArray
+  pushToArray,
+  onGetGameIndex
 }

@@ -27,7 +27,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <p class="navbar-brand" href="#">X's &amp; O's</p1>
+        <p class="navbar-brand">X's &amp; O's</p>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,7 +36,7 @@
         </ul>
         <div class="nav navbar-nav navbar-right" id="navbar-padding">
           <!--Sign In Button Trigger Modal  -->
-          <input type="button" class="btn btn-default hvr-grow1 sign-in" data-toggle="modal" data-target="#myModal" value="Sign In!">
+          <input type="button" class="btn btn-default hvr-grow1 sign-in" data-toggle="modal" data-target="#myModal" value="Log In!">
           <!-- Sign-In Modal -->
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -75,11 +75,12 @@
                     <input type="text" name="credentials[email]" placeholder="Email">
                     <input type="password" name="credentials[password]" placeholder="Password">
                     <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                    <input type="submit" class="btn btn-default" value="Sign Up!">
+                    <input type="submit" class
+                    ?="btn btn-default" value="Sign Up!">
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <h2 class="authmessage"></h2>
+                  <h2 class="authmessage1"></h2>
                 </div>
               </div>
             </div>
@@ -105,7 +106,7 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <h2 class="authmessage"></h2>
+                  <h2 class="authmessage2"></h2>
                 </div>
               </div>
             </div>
@@ -131,33 +132,39 @@
   <section>
 
     <div id="main-content game" class="container-fluid">
+      <h2 id="status"></h2>
       <div class="turn-counter">
-        <h2 id="status"></h2>
-        <h2 id="counter">Begin Player X!</h2>
+        <h2 id="counter" class="hidden">Begin Player X!</h2>
       </div>
-      <div id="game-board">
+      <div id="start-message" class=o>
+          <p>Please Log In <br> To <span id="start">Start!</span></p>
+      </div>
+      <div id="game-board" class=" container-fluid hidden">
         <table>
-          <td class="box" id="box-0"></td>
-          <td class="box" id="box-1"></td>
-          <td class="box" id="box-2"></td>
+          <tr>
+          <td class="box col-sm" id="box-0"></td>
+          <td class="box col-sm" id="box-1"></td>
+          <td class="box col-sm" id="box-2"></td>
           </tr>
           <tr>
-            <td class="box" id="box-3"></td>
-            <td class="box" id="box-4"></td>
-            <td class="box" id="box-5"></td>
+            <td class="box col" id="box-3"></td>
+            <td class="box col" id="box-4"></td>
+            <td class="box col" id="box-5"></td>
           </tr>
           <tr>
-            <td class="box" id="box-6"></td>
-            <td class="box" id="box-7"></td>
-            <td class="box" id="box-8"></td>
+            <td class="box col" id="box-6"></td>
+            <td class="box col" id="box-7"></td>
+            <td class="box col" id="box-8"></td>
           </tr>
         </table>
       </div>
     </div>
 
     <div class="replay">
-      <button type="button" name="button" id="replay" class="hvr-grow">Play New Game!</button>
     </div>
+    <button type="button" name="button" id="replay" class="hvr-grow hidden">Play New Game!</button>
+    <br>
+    <button id="get-games" class="hidden"> Fetch Game Data </button>
 
   </section>
 
@@ -168,7 +175,6 @@
     <p id="copyright">X's &amp; O's</p>
   </footer>
   <!-- Footer End -->
-&#9876;
 </body>
 
 </html>

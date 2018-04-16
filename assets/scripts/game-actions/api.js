@@ -9,12 +9,46 @@ const gameIndex = function (data) {
     method: 'GET',
     headers: {
       contentType: 'application/json',
-      Authorization: 'Token token=<token>'
+      Authorization: `Token token=${store.user.token}`
     },
     data
   })
 }
 
+const gameStart = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {}
+  })
+}
+
+const gameUpdate = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      game: {
+        cell: {
+          index: data,
+          value: data
+        },
+        over: data
+      }
+    }
+  })
+}
+
 module.exports = {
-  gameIndex
+  gameIndex,
+  gameStart,
+  gameUpdate
 }

@@ -26,15 +26,20 @@ td {
   font-size: 35px;
   margin: 0 auto;
   font-family: 'Press Start 2P', cursive;
+  color: white
 }
 
 .modal-footer {
   text-align: center;
 }
 
+#main-content {
+  margin: 0 auto;
+}
+
 #game-board {
-  margin-left: 0 auto;
-  padding: 20px 34% 50px;
+  margin: 0 auto;
+  padding: 20px 35% 50px;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -59,7 +64,31 @@ td {
   font-family: 'Press Start 2P', cursive;
 }
 
-#status {
+.authmessage1 {
+  color: red;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.authmessage2 {
+  color: red;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#status{
+  font-family: 'Press Start 2P', cursive;
+  color: red;
+}
+#status2 {
+  font-family: 'Press Start 2P', cursive;
+  color: red;
+}
+#status3 {
+  font-family: 'Press Start 2P', cursive;
+  color: red;
+}
+#status4 {
   font-family: 'Press Start 2P', cursive;
   color: red;
 }
@@ -68,6 +97,26 @@ td {
   font-family: 'Press Start 2P', cursive;
 }
 // Removed Border from respective sides to create Tic-Tac-Toe Board
+
+#start-message {
+  font-family: 'Press Start 2P', cursive;
+  border: 2px solid black;
+  box-shadow: 6px 6px black;
+  width: 40%;
+  height: 250px;
+  font-size: 45px ;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-left: 27px;
+}
+
+#start{
+  color: red;
+  text-decoration: underline;
+  animation: blinker 1.2s linear infinite;
+}
+
 
 #box-0 {
   border-top: none;
@@ -108,6 +157,7 @@ td {
 .replay {
   font-family: 'Press Start 2P', cursive;
   padding-bottom: 10px;
+  margin: 0 auto;
 }
 
 #replay {
@@ -167,4 +217,11 @@ footer {
 #copyright {
   color: white;
   padding: 15px;
+}
+
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+    }
 }
