@@ -35,7 +35,7 @@ const winCombos = [
 
 // Change Turns and print X or O based on respctive turn
 let turn = ''
-const changeTurn = function() {
+const changeTurn = function () {
   // if (element.innerHTML !== '') return
   if (this.innerHTML !== 'X' && this.innerHTML !== 'O') {
     if (turn === player1) {
@@ -53,7 +53,7 @@ const changeTurn = function() {
 }
 
 // Play again functon
-const playAgain = function(event) {
+const playAgain = function (event) {
   event.preventDefault()
   // Show game board
   $('#game-board').show()
@@ -77,7 +77,7 @@ const onGetGameIndex = function () {
     .then(ui.gameIndexSuccess)
 }
 
-const pushToArray = function() {
+const pushToArray = function (data) {
   board[0] = $('#box-0').text()
   board[1] = $('#box-1').text()
   board[2] = $('#box-2').text()
@@ -87,10 +87,14 @@ const pushToArray = function() {
   board[6] = $('#box-6').text()
   board[7] = $('#box-7').text()
   board[8] = $('#box-8').text()
+  // data.game.cells.index = board
+  api.gameUpdate(function () {
+    console.log('data is', data)
+  })
   console.log(board)
 }
 
-const winCondition = () => {
+const winCondition = (data) => {
   board[0] = document.getElementById('box-0')
   board[1] = document.getElementById('box-1')
   board[2] = document.getElementById('box-2')
@@ -120,6 +124,7 @@ const winCondition = () => {
     console.log('X wins')
     $('#counter').text('Congratulations ' + 'Player X has won!')
     $('#game-board').hide()
+    // data.game.over = true
     return true
     // if O wins top row
   } else if ((board[0].innerHTML === 'O' && board[1].innerHTML === 'O' && board[2].innerHTML === 'O') ||
@@ -141,11 +146,13 @@ const winCondition = () => {
     console.log('O wins')
     $('#counter').text('Congratulations ' + 'Player O has won!')
     $('#game-board').hide()
+    // data.game.over = true
     return true
   } else if ((board[0].innerHTML !== '' && board[1].innerHTML !== '' && board[2].innerHTML !== '' &&
       board[3].innerHTML !== '' && board[4].innerHTML !== '' && board[5].innerHTML !== '' && board[6].innerHTML !== '' &&
       board[7].innerHTML !== '' && board[8].innerHTML !== '')) {
     // return draw
+    // data.game.over = true
     console.log('Its a draw')
     $('#counter').text('Its a draw!')
     $('#game-board').hide()

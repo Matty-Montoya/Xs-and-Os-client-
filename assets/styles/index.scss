@@ -1,6 +1,8 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 $background-color: #272727;
+$white-color: #fff;
+$red-color: #f00;
 
 body {
   text-align: center;
@@ -100,7 +102,7 @@ td {
 
 #start-message {
   font-family: 'Press Start 2P', cursive;
-  border: 2px solid black;
+  border: 6px dashed black;
   box-shadow: 6px 6px black;
   width: 40%;
   height: 250px;
@@ -162,15 +164,35 @@ td {
 
 #replay {
   width: 300px;
-  height: 30px;
   height: 45px;
   font-size: 15px;
   font-family: 'Press Start 2P', cursive;
-  color: white;
+  color: $white-color;
   font-weight: bold;
   background-color: $background-color;
 }
+ #replay:hover{
+   color: $red-color;
+   background-color: $white-color;
+   border: 2px dashed $background-color;
+   animation: blinker 1.4s linear infinite;
+ }
 
+#get-games {
+  width: 300px;
+  height: 45px;
+  font-size: 15px;
+  font-family: 'Press Start 2P', cursive;
+  color: $white-color;
+  font-weight: bold;
+  background-color: $background-color;
+ }
+#get-games:hover{
+  color: $red-color;
+  background-color: $white-color;
+  border: 2px dashed $background-color;
+  animation: blinker 1.4s linear infinite;
+}
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;
