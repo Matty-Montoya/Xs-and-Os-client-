@@ -21,6 +21,16 @@ let board
 
 board = ['', '', '', '', '', '', '', '', '']
 
+const data = {
+  'game': {
+    'cell': {
+      'index': '',
+      'value': ''
+    },
+    'over': false
+  }
+}
+
 // Total Win Combinations
 const winCombos = [
   [board[0], board[1], board[2]],
@@ -35,7 +45,7 @@ const winCombos = [
 
 // Change Turns and print X or O based on respctive turn
 let turn = ''
-const changeTurn = function () {
+const changeTurn = function (data) {
   // if (element.innerHTML !== '') return
   if (this.innerHTML !== 'X' && this.innerHTML !== 'O') {
     if (turn === player1) {
@@ -77,7 +87,7 @@ const onGetGameIndex = function () {
     .then(ui.gameIndexSuccess)
 }
 
-const pushToArray = function (data) {
+const pushToArray = function () {
   board[0] = $('#box-0').text()
   board[1] = $('#box-1').text()
   board[2] = $('#box-2').text()
@@ -87,14 +97,13 @@ const pushToArray = function (data) {
   board[6] = $('#box-6').text()
   board[7] = $('#box-7').text()
   board[8] = $('#box-8').text()
-  // data.game.cells.index = board
-  api.gameUpdate(function () {
-    console.log('data is', data)
-  })
+  data.game.cell.index = board
+  data.game.cell.value = turn
+  onUpdateGame(data)
   console.log(board)
 }
 
-const winCondition = (data) => {
+const winCondition = () => {
   board[0] = document.getElementById('box-0')
   board[1] = document.getElementById('box-1')
   board[2] = document.getElementById('box-2')
@@ -125,7 +134,7 @@ const winCondition = (data) => {
     $('#counter').text('Congratulations ' + 'Player X has won!')
     $('#game-board').hide()
     // data.game.over = true
-    return true
+    store.game.over = true
     // if O wins top row
   } else if ((board[0].innerHTML === 'O' && board[1].innerHTML === 'O' && board[2].innerHTML === 'O') ||
     // or O wins middle row
@@ -147,20 +156,24 @@ const winCondition = (data) => {
     $('#counter').text('Congratulations ' + 'Player O has won!')
     $('#game-board').hide()
     // data.game.over = true
-    return true
+    store.game.over = true
   } else if ((board[0].innerHTML !== '' && board[1].innerHTML !== '' && board[2].innerHTML !== '' &&
       board[3].innerHTML !== '' && board[4].innerHTML !== '' && board[5].innerHTML !== '' && board[6].innerHTML !== '' &&
       board[7].innerHTML !== '' && board[8].innerHTML !== '')) {
     // return draw
     // data.game.over = true
     console.log('Its a draw')
+    store.game.over = true
     $('#counter').text('Its a draw!')
     $('#game-board').hide()
   }
 }
-
+const onUpdateGame = function () {
+  api.gameUpdate(data)
+    .then(ui.gamePatchSuccess)
+}
 const gameState = function () {
-  if (winCondition === true) {
+  if (winCondition() === true) {
     store.game.over = true
   } else {
     store.game.over = false
@@ -179,5 +192,6 @@ module.exports = {
   playAgain,
   pushToArray,
   onGetGameIndex,
-  gameState
+  gameState,
+  onUpdateGame
 }

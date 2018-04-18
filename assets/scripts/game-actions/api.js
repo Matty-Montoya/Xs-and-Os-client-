@@ -35,15 +35,7 @@ const gameUpdate = function (data) {
       contentType: 'application/json',
       Authorization: `Token token=${store.user.token}`
     },
-    data: {
-      game: {
-        cell: {
-          index: data.game,
-          value: store.player
-        },
-        over: store.gameState
-      }
-    }
+    data
   })
 }
 
