@@ -38,10 +38,10 @@ const gameUpdate = function (data) {
     data: {
       game: {
         cell: {
-          index: data,
-          value: data
+          index: $(event.target).attr('.box'),
+          value: store.player
         },
-        over: data
+        over: store.gameState
       }
     }
   })

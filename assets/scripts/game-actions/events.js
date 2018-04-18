@@ -8,6 +8,7 @@ const addHandlers = () => {
   $('.box').on('click', winCondition)
   $('.box').on('click', pushToArray)
   $('#replay').on('click', playAgain)
+  $('#play').on('click', playAgain)
   $('#get-games').on('click', onGetGameIndex)
 }
 
@@ -34,7 +35,7 @@ const winCombos = [
 
 // Change Turns and print X or O based on respctive turn
 let turn = ''
-const changeTurn = function () {
+const changeTurn = function() {
   // if (element.innerHTML !== '') return
   if (this.innerHTML !== 'X' && this.innerHTML !== 'O') {
     if (turn === player1) {
@@ -52,7 +53,7 @@ const changeTurn = function () {
 }
 
 // Play again functon
-const playAgain = function (event) {
+const playAgain = function(event) {
   event.preventDefault()
   // Show game board
   $('#game-board').show()
@@ -76,7 +77,7 @@ const onGetGameIndex = function () {
     .then(ui.gameIndexSuccess)
 }
 
-const pushToArray = function () {
+const pushToArray = function() {
   board[0] = $('#box-0').text()
   board[1] = $('#box-1').text()
   board[2] = $('#box-2').text()
@@ -140,7 +141,6 @@ const winCondition = () => {
     console.log('O wins')
     $('#counter').text('Congratulations ' + 'Player O has won!')
     $('#game-board').hide()
-
     return true
   } else if ((board[0].innerHTML !== '' && board[1].innerHTML !== '' && board[2].innerHTML !== '' &&
       board[3].innerHTML !== '' && board[4].innerHTML !== '' && board[5].innerHTML !== '' && board[6].innerHTML !== '' &&
@@ -152,6 +152,16 @@ const winCondition = () => {
   }
 }
 
+const gameState = function () {
+  if (winCondition === true) {
+    store.game.over = true
+  } else {
+    store.game.over = false
+  }
+  api.gameUpdate()
+    .then(ui.gamePatchSuccess)
+}
+
 module.exports = {
   board,
   addHandlers,
@@ -161,5 +171,6 @@ module.exports = {
   changeTurn,
   playAgain,
   pushToArray,
-  onGetGameIndex
+  onGetGameIndex,
+  gameState
 }

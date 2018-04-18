@@ -21,11 +21,9 @@ const signInSuccess = function (data) {
   $('.sign-in').addClass('hidden')
   $('.sign-up').addClass('hidden')
   $('#start-message').addClass('hidden')
-  $('#counter').removeClass('hidden')
   $('.change-password').removeClass('hidden')
   $('.sign-out').removeClass('hidden')
-  $('#replay').removeClass('hidden')
-  $('#game-board').removeClass('hidden')
+  $('#play').removeClass('hidden')
   store.user = data.user
 }
 
@@ -56,6 +54,7 @@ const signOutSuccess = function () {
   $('#replay').addClass('hidden')
   $('#game-board').addClass('hidden')
   $('#counter').addClass('hidden')
+  $('#play').addClass('hidden')
   store.user = null
 }
 

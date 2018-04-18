@@ -4,6 +4,10 @@ const store = require('../store.js')
 
 const gameStartSuccess = function (data) {
   console.log(data)
+  $('#counter').removeClass('hidden')
+  $('#replay').removeClass('hidden')
+  $('#game-board').removeClass('hidden')
+
   store.game = data.game
 }
 
@@ -12,7 +16,7 @@ const gameIndexSuccess = function (data) {
 }
 
 const gamePatchSuccess = function (data) {
-  console.log(data)
+  console.log('data is', data)
   store.game = data.game
 }
 
