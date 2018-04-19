@@ -13,6 +13,8 @@ const gameStartSuccess = function (data) {
 
 const gameIndexSuccess = function (data) {
   console.log('data is', data)
+  const length = data.games.length
+  console.log(length)
 }
 
 const gamePatchSuccess = function (data) {

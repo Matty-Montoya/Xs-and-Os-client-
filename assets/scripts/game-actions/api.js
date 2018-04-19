@@ -27,7 +27,7 @@ const gameStart = function () {
   })
 }
 
-const gameUpdate = function (data) {
+const gameUpdate = function (data, turn, isOver) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -35,7 +35,15 @@ const gameUpdate = function (data) {
       contentType: 'application/json',
       Authorization: `Token token=${store.user.token}`
     },
-    data
+    data: {
+      game: {
+        cell: {
+          index: data,
+          value: turn
+        },
+        over: isOver
+      }
+    }
   })
 }
 

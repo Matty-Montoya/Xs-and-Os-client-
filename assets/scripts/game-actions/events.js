@@ -7,6 +7,7 @@ const addHandlers = () => {
   $('.box').on('click', changeTurn)
   $('.box').on('click', winCondition)
   $('.box').on('click', pushToArray)
+  $('.box').on('click', onUpdateGame)
   $('#replay').on('click', playAgain)
   $('#play').on('click', playAgain)
   $('#get-games').on('click', onGetGameIndex)
@@ -18,18 +19,9 @@ const player2 = 'O'
 
 // Creating the board as an array of 9 empty strings
 let board
+let isOver = false
 
 board = ['', '', '', '', '', '', '', '', '']
-
-const data = {
-  'game': {
-    'cell': {
-      'index': '',
-      'value': ''
-    },
-    'over': false
-  }
-}
 
 // Total Win Combinations
 const winCombos = [
@@ -88,31 +80,30 @@ const onGetGameIndex = function () {
 }
 
 const pushToArray = function () {
-  board[0] = $('#box-0').text()
-  board[1] = $('#box-1').text()
-  board[2] = $('#box-2').text()
-  board[3] = $('#box-3').text()
-  board[4] = $('#box-4').text()
-  board[5] = $('#box-5').text()
-  board[6] = $('#box-6').text()
-  board[7] = $('#box-7').text()
-  board[8] = $('#box-8').text()
-  data.game.cell.index = board
-  data.game.cell.value = turn
-  onUpdateGame(data)
+  board[0] = $('#0').text()
+  board[1] = $('#1').text()
+  board[2] = $('#2').text()
+  board[3] = $('#3').text()
+  board[4] = $('#4').text()
+  board[5] = $('#5').text()
+  board[6] = $('#6').text()
+  board[7] = $('#7').text()
+  board[8] = $('#8').text()
+  // data.game.cell.index = board
+  // data.game.cell.value = turn
   console.log(board)
 }
 
 const winCondition = () => {
-  board[0] = document.getElementById('box-0')
-  board[1] = document.getElementById('box-1')
-  board[2] = document.getElementById('box-2')
-  board[3] = document.getElementById('box-3')
-  board[4] = document.getElementById('box-4')
-  board[5] = document.getElementById('box-5')
-  board[6] = document.getElementById('box-6')
-  board[7] = document.getElementById('box-7')
-  board[8] = document.getElementById('box-8')
+  board[0] = document.getElementById('0')
+  board[1] = document.getElementById('1')
+  board[2] = document.getElementById('2')
+  board[3] = document.getElementById('3')
+  board[4] = document.getElementById('4')
+  board[5] = document.getElementById('5')
+  board[6] = document.getElementById('6')
+  board[7] = document.getElementById('7')
+  board[8] = document.getElementById('8')
 
   if ((board[0].innerHTML === 'X' && board[1].innerHTML === 'X' && board[2].innerHTML === 'X') ||
     // or x wins middle row
@@ -134,7 +125,8 @@ const winCondition = () => {
     $('#counter').text('Congratulations ' + 'Player X has won!')
     $('#game-board').hide()
     // data.game.over = true
-    store.game.over = true
+    isOver = true
+    return isOver
     // if O wins top row
   } else if ((board[0].innerHTML === 'O' && board[1].innerHTML === 'O' && board[2].innerHTML === 'O') ||
     // or O wins middle row
@@ -156,7 +148,9 @@ const winCondition = () => {
     $('#counter').text('Congratulations ' + 'Player O has won!')
     $('#game-board').hide()
     // data.game.over = true
-    store.game.over = true
+    // store.game.over = true
+    isOver = true
+    return isOver
   } else if ((board[0].innerHTML !== '' && board[1].innerHTML !== '' && board[2].innerHTML !== '' &&
       board[3].innerHTML !== '' && board[4].innerHTML !== '' && board[5].innerHTML !== '' && board[6].innerHTML !== '' &&
       board[7].innerHTML !== '' && board[8].innerHTML !== '')) {
@@ -168,8 +162,12 @@ const winCondition = () => {
     $('#game-board').hide()
   }
 }
-const onUpdateGame = function () {
-  api.gameUpdate(data)
+const onUpdateGame = function (event) {
+  event.preventDefault()
+  const data = event.target.id
+  const turn = event.target.innerText
+  const isOver = winCondition()
+  api.gameUpdate(data, turn, isOver)
     .then(ui.gamePatchSuccess)
 }
 const gameState = function () {
