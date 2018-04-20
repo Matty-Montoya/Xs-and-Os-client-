@@ -102,14 +102,14 @@ td {
 
 #start-message {
   font-family: 'Press Start 2P', cursive;
-  border: 6px dashed black;
+  border: 6px solid black;
   box-shadow: 6px 6px black;
-  width: 40%;
-  height: 250px;
-  font-size: 45px ;
+  width: 30%;
+  height: 220px;
+  font-size: 35px ;
   text-align: center;
   margin: 0 auto;
-  padding-top: 60px;
+  padding-top: 45px;
   padding-left: 27px;
 }
 
@@ -225,21 +225,21 @@ td {
 .hvr-grow1:hover {
   transform: scale(1.08);
 }
-footer {
-  height: 60px;
-  width: 100%;
-  background-color: $background-color;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-family: 'Press Start 2P', cursive;
-}
-
-#copyright {
-  color: white;
-  padding: 15px;
-}
+// footer {
+//   height: 60px;
+//   width: 100%;
+//   background-color: $background-color;
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   font-family: 'Press Start 2P', cursive;
+// }
+//
+// #copyright {
+//   color: white;
+//   padding: 15px;
+// }
 
 
 @keyframes blinker {
