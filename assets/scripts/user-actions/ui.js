@@ -18,7 +18,6 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
-  console.log(data)
   $('#status').html('You have successfully signed in!')
   setTimeout(() => $('#status').text(''), 2000)
   $('#myModal').modal('toggle')

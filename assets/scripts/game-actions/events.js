@@ -79,6 +79,7 @@ const onGetGameIndex = function () {
     .then(ui.gameIndexSuccess)
 }
 
+// Function to push the turn to the corresponding place in the array.
 const pushToArray = function () {
   board[0] = $('#0').text()
   board[1] = $('#1').text()
@@ -89,11 +90,9 @@ const pushToArray = function () {
   board[6] = $('#6').text()
   board[7] = $('#7').text()
   board[8] = $('#8').text()
-  // data.game.cell.index = board
-  // data.game.cell.value = turn
-  console.log(board)
 }
 
+// Function to check for win condition.
 const winCondition = () => {
   board[0] = document.getElementById('0')
   board[1] = document.getElementById('1')
@@ -121,10 +120,9 @@ const winCondition = () => {
     // or X wins right to left diagonal
     (board[2].innerHTML === 'X' && board[4].innerHTML === 'X' && board[6].innerHTML === 'X')) {
     // print player one wins
-    console.log('X wins')
     $('#counter').text('Congratulations ' + 'Player X has won!')
     $('#game-board').hide()
-    // data.game.over = true
+    // Returns trun if win condition is over.
     isOver = true
     return isOver
     // if O wins top row
@@ -144,11 +142,9 @@ const winCondition = () => {
     // or O wins right to left diagonal
     (board[2].innerHTML === 'O' && board[4].innerHTML === 'O' && board[6].innerHTML === 'O')) {
     // print player two wins
-    console.log('O wins')
     $('#counter').text('Congratulations ' + 'Player O has won!')
     $('#game-board').hide()
-    // data.game.over = true
-    // store.game.over = true
+    // Check to see if win condition is met and return true.
     isOver = true
     return isOver
   } else if ((board[0].innerHTML !== '' && board[1].innerHTML !== '' && board[2].innerHTML !== '' &&
@@ -156,7 +152,6 @@ const winCondition = () => {
       board[7].innerHTML !== '' && board[8].innerHTML !== '')) {
     // return draw
     // data.game.over = true
-    console.log('Its a draw')
     store.game.over = true
     $('#counter').text('Its a draw!')
     $('#game-board').hide()

@@ -3,7 +3,6 @@
 const store = require('../store.js')
 
 const gameStartSuccess = function (data) {
-  console.log(data)
   $('#counter').removeClass('hidden')
   $('#replay').removeClass('hidden')
   $('#game-board').removeClass('hidden')
@@ -11,7 +10,6 @@ const gameStartSuccess = function (data) {
 }
 
 const gameIndexSuccess = function (data) {
-  console.log('data is', data)
   const length = data.games.length
   $('#games-played').removeClass('hidden')
   $('#games-played').text('Total Games Played ' + length)
@@ -19,7 +17,6 @@ const gameIndexSuccess = function (data) {
 }
 
 const gamePatchSuccess = function (data) {
-  console.log('data is', data)
   store.game = data.game
 }
 
