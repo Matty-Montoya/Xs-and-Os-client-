@@ -22,7 +22,7 @@
 
 
 ### Wireframes:
-![alt text](https://imgur.com/aY5vXaG)
+![alt text](https://i.imgur.com/aY5vXaG.jpg)
 
-### User Stores:
-![alt text](https://imgur.com/chlJuRz)
+### User Stories:
+![alt text](https://i.imgur.com/chlJuRz.jpg)
