@@ -1,7 +1,28 @@
+# X's & O's Project
+
+### Technologies Used:
+..*ATOM Editor
+..Computer Terminal
+..*GitHub
+..*Chrome Browser
+..*HTML
+..*CSS/SASS
+..*JavaScript
+..*JQuery
+..*Ajax
+..*Boostrap
+..*Laptop
 
 
-## [License](LICENSE)
+### Planning:
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+
+### Unsolved Problems:
+
+
+
+### Wireframes:
+![alt text](https://imgur.com/aY5vXaG)
+
+### User Stores:
+![alt text](https://imgur.com/chlJuRz)
