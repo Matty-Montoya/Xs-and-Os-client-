@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>X's and O's</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <!-- Navigation Bar  -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <p class="navbar-brand">X's &amp; O's</p>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        </ul>
+        <div class="nav navbar-nav navbar-right" id="navbar-padding">
+          <!--Sign In Button Trigger Modal  -->
+          <input type="button" class="btn btn-default  sign-in" data-toggle="modal" data-target="#myModal" value="Log In!">
+          <!-- Sign-In Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Sign In!</h4>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-in">
+                    <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+                    <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                    <input type="submit" class="btn btn-default" value="Sign-In">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <h2 class="authmessage"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Sign-In Modal End  -->
+
+          <!-- Sign Up Button Trigger Modal -->
+          <input type="button" class="btn btn-default  sign-up" data-toggle="modal" data-target="#myModal1" value="Sign Up!">
+          <!-- Sign- Up Modal -->
+          <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Sign Up!</h4>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-up">
+                    <input type="text" name="credentials[email]" placeholder="Email">
+                    <input type="password" name="credentials[password]" placeholder="Password">
+                    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                    <input type="submit" class="btn btn-default" value="Sign Up!">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <h2 class="authmessage1"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Sign Up Modal End  -->
+
+          <!-- Change Password Button Trigger Modal -->
+          <input type="button" class="btn btn-default hidden  change-password" data-toggle="modal" data-target="#myModal2" value="Change Password">
+
+          <!-- Change Password Modal Begin -->
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+                </div>
+                <div class="modal-body">
+                  <form id="change-password">
+                    <input type="password" name="passwords[old]" placeholder="Old Password">
+                    <input type="password" name="passwords[new]" placeholder="New Password">
+                    <input type="submit" value="Change Password ">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <h2 class="authmessage2"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Change Password Modal End  -->
+
+          <!--Sign Out Button Start -->
+          <form id="sign-out">
+            <!-- <fieldset> -->
+            <input type="submit" class="btn btn-default hidden  sign-out" value="Sign Out">
+            <!-- </fieldset> -->
+          </form>
+          <!--Sign Out Button End  -->
+
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation End  -->
+
+
+  <!-- Game Board  -->
+  <section>
+
+    <div id="main-content" class="container-fluid">
+      <h2 id="status"></h2>
+      <div class="turn-counter">
+        <h1 id="counter" class="hidden">Begin Player X!</h1>
+      </div>
+      <div id="start-message" class="container-fluid">
+        <p>Please Log In <br> To <span id="start">Start!</span></p>
+      </div>
+      <div id="game-board" class=" container-fluid hidden">
+        <table summary="Game Board">
+          <tr>
+            <td class="box" id="0"></td>
+            <td class="box" id="1"></td>
+            <td class="box" id="2"></td>
+          </tr>
+          <tr>
+            <td class="box" id="3"></td>
+            <td class="box" id="4"></td>
+            <td class="box" id="5"></td>
+          </tr>
+          <tr>
+            <td class="box" id="6"></td>
+            <td class="box" id="7"></td>
+            <td class="box" id="8"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="start-game" class="hidden replay">
+      <button type="button" name="button" id="replay" class="hidden">Start New Game!</button>
+      <button id="get-games" class=""> Fetch Game Data </button>
+      <h2 id="games-played" class="hidden"></h2>
+    </div>
+  </section>
+
+  <!-- End of Game Board  -->
+
+  <!-- Footer Start  -->
+  <!-- <footer>
+    <p id="copyright">X's &amp; O's</p>
+  </footer> -->
+  <!-- Footer End -->
+
+</body>
+
+</html>
